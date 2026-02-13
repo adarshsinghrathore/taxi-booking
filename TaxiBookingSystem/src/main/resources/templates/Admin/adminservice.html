@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Form</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 20px;
+        }
+
+        /* Form Container */
+        .form-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        /* Form Title */
+        .form-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        /* Labels */
+        label {
+            display: block;
+            font-weight: bold;
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        /* Input Fields */
+        input[type="text"],
+        textarea,
+        input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        /* Textarea */
+        textarea {
+            resize: none;
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            background-color: yellow;
+            color: black;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Service Form</h2>
+        <h2 th:text="${message}"></h2>
+       
+       
+        <form action="addService" method="post" enctype="multipart/form-data">
+            <!-- Service Title -->
+            <div class="form-group">
+                <label for="title">Service Title</label>
+                <input type="text" id="title" name="title" placeholder="Enter Service title" required>
+            </div>
+
+            <!-- Service Description -->
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" placeholder="Enter service description" rows="4" required></textarea>
+            </div>
+
+            <!-- Service Image -->
+            <div class="form-group">
+                <label for="image">Upload Image</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

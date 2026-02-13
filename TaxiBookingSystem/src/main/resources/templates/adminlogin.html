@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and Background */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Login Container */
+        .login-container {
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .login-container h2 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Form */
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #f9f9f9;
+            color: #333;
+            outline: none;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #4caf50;
+        }
+
+        .form-group input[type="password"] {
+            padding-right: 30px;
+        }
+
+        /* Show password button */
+        .password-toggle {
+            position: absolute;
+            right: 15px;
+            top: 40px;
+            cursor: pointer;
+            color: #aaa;
+        }
+
+        /* Login button */
+        .btn {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            background-color:white;
+            color: black;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color:yellow;
+        }
+
+        /* Error Message */
+        .error {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        /* Footer (Optional) */
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 12px;
+            color: rgb(64, 128, 128);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>ADMIN 🚕 LOGIN</h2>
+        <div th:if ="${param.error}">
+        <h2 >INVALID CREDENTIALS</h2>
+        </div>
+        
+        <div th:if ="${logout}">
+        <h2 >YOU HAVE BEEN SUCCESSFULLY LOGEOUT</h2>
+        </div>
+        <form action="/login" method="post">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                <span class="password-toggle" id="togglePassword">👁️</span>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="error" id="errorMessage"></div>
+        </form>
+        <div class="footer">
+            <p>&copy; 2025 Your Company. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        // Toggle Password Visibility
+        const togglePassword = document.getElementById('togglePassword');
+        const passwordField = document.getElementById('password');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+            this.textContent = type === 'password' ? '👁️' : '🙈';
+        });
+
+        // Handle Form Submission
+        const form = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Prevent form submission for testing
+
+            const username = form.username.value;
+            const password = form.password.value;
+
+            if (username === '' || password === '') {
+                errorMessage.textContent = 'Username and Password are required.';
+            } else {
+                // Implement your login logic here
+                errorMessage.textContent = ''; // Clear any existing error message
+                alert('Login successful');
+            }
+        });
+    </script>
+
+</body>
+</html>

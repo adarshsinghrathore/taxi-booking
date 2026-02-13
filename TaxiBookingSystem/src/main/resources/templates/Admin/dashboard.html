@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header */
+        header {
+            width: 100%;
+            background-color: yellow;
+            color: black;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        /* Navigation */
+        nav {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: black;
+            font-size: large;
+            padding: 12px 20px;
+            margin: 0 15px;
+            border-radius: 5px;
+            background-color: white;
+            transition: white;
+        }
+
+        nav a:hover {
+            background-color:yellow;
+        }
+
+
+        /* Main Content */
+     
+
+        /* Section Titles */
+        .main-content h2 {
+            color: #34495E;
+            margin-bottom: 15px;
+        }
+
+       
+        /* Button Styles */
+        .btn {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Logout Button */
+        .logout-btn {
+            padding: 12px;
+            background-color: #e74c3c;
+            color: red;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 200px;
+            text-align: center;
+            transition: background-color 0.3s;
+            display: block;
+            margin: 20px auto;
+        }
+
+        .logout-btn:hover {
+            background-color: #c0392b;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main-content {
+                width: 90%;
+            }
+
+            nav a {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>ADMIN 🚕 PANEL</h1>
+    </header>
+
+    <!-- Navigation -->
+    <h2 th:text="${message}"></h2>
+    <nav>
+       
+       
+       
+        <div class="main-content">
+        
+             
+         <a href="readAllContacts" > ☎️ READALLCONTACTS</a><br>
+        <br>
+        <br>
+        <a href="readAllBookings" > 📆 READALLBOOKINGS</a><br>
+        <br>
+        <br>
+        
+         <br>
+         <br>
+         <a href="addService"> ADD SERVICE</a>
+          <br>
+           <br>
+            <br>
+             <br>
+         
+          <nav><a  href="/dologout" style="color:red"  >LOGOUT</a></nav>
+         
+        </div>
+
+
+      
+ 
+    </nav>
+   <a href="changeCredentials" style="color:navy; text-decoration: none;">CHANGE CREDENTIALS</a>
+  
+     
+    
+  
+       
+       
+
+
+</body>
+</html>
